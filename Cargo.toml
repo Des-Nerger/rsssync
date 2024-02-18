@@ -1,0 +1,26 @@
+[workspace]
+members = ["third-party/*"]
+
+[package]
+name = "rsssync"
+version = "0.1.0"
+edition = "2021"
+
+[profile.release]
+strip = true
+# lto = true
+
+[profile.dev]
+opt-level = 1
+debug = false
+
+[profile.dev.package."*"]
+opt-level = 3
+debug = false
+
+[patch.crates-io]
+nom = { path = "third-party/nom" }
+
+[dependencies]
+subparse = "0.7"
+combine = "2.5"
